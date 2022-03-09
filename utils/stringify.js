@@ -3,7 +3,7 @@ const keyReplacer = (_, value) => {
     return value;
   }
 
-  return value.replace(process.env.API_KEY, "");
+  return value.replace(process.env.YOUTUBE_API_KEY, "");
 };
 
 const stringify = (subject) => JSON.stringify(subject, keyReplacer, " ");
