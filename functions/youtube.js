@@ -26,6 +26,7 @@ exports.handler = async (event) => {
   try {
     const response = await fetch(url, { headers: { referer } });
     const body = await response.json();
+    headers["Access-Control-Allow-Origin"] = "*";
 
     if (body.error) {
       return {
@@ -46,7 +47,9 @@ exports.handler = async (event) => {
     return {
       statusCode: 400,
       ok: false,
-      headers,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+      },
       body: stringify(error),
     };
   }
